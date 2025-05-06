@@ -7,9 +7,15 @@ use App\Http\Controllers\Controller;
 use Exception;
 // request
 
-use File;
+// use File;
+// use Illuminate\Support\Facades\Request;
+// use Lang;
+// use config;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Request;
-use Lang;
+use Illuminate\Support\Facades\File;
+
 
 /**
  * ErrorAndDebuggingController.
@@ -39,8 +45,8 @@ class ErrorAndDebuggingController extends Controller
      */
     public function showSettings()
     {
-        $debug = \Config::get('app.debug');
-        $bugsnag = \Config::get('app.bugsnag_reporting');
+        $debug = Config::get('app.debug');
+        $bugsnag = Config::get('app.bugsnag_reporting');
 
         return view('themes.default1.admin.helpdesk.settings.error-and-logs.error-debug')->with(['debug' => $debug, 'bugsnag' => $bugsnag]);
     }
@@ -55,9 +61,9 @@ class ErrorAndDebuggingController extends Controller
     public function postSettings()
     {
         try {
-            $debug = \Config::get('app.debug');
+            $debug = Config::get('app.debug');
             $debug = ($debug) ? 'true' : 'false';
-            $bugsnag_debug = \Config::get('app.bugsnag_reporting');
+            $bugsnag_debug = Config::get('app.bugsnag_reporting');
             $bugsnag_debug = ($bugsnag_debug) ? 'true' : 'false';
             if ($debug != Request::get('debug') || $bugsnag_debug != Request::get('bugsnag')) {
                 // dd($request->input());

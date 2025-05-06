@@ -12,6 +12,7 @@ use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WhatsAppController;
 
 /*
   |--------------------------------------------------------------------------
@@ -803,4 +804,10 @@ Route::middleware('web')->group(function () {
     Route::get('show/swtich-language/{id}', [Client\helpdesk\UnAuthController::class, 'changeUserLanguage']);
     Route::get('pages/swtich-language/{id}', [Client\helpdesk\UnAuthController::class, 'changeUserLanguage'])->name('switch-user-lang');
     Route::get('swtich-language/{id}', [Client\helpdesk\UnAuthController::class, 'changeUserLanguage'])->name('switch-user-lang');
+
+    // WA (WHATSAPP) API
+    // Route::get('/form-wa/{id}', [WhatsAppController::class, 'form'])->name('form.wa');
+    // Route::get('/send-wa', [WhatsAppController::class, 'sendMessage']);
+    // Route::post('/send-wa', [App\Http\Controllers\WhatsAppController::class, 'sendMessage']);
+    // Route::post('/send-wa/{id}', [WhatsAppController::class, 'send'])->name('send.wa');
 });

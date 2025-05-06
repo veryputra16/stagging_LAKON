@@ -24,7 +24,7 @@ class = "nav-item active"
     </ol>
 </div>
 @stop
-<!-- /breadcrumbs -->
+<!-- /breadcrumbs --> 
 @section('check')
     
     <div id="sidebar" class="site-sidebar col-md-3">
@@ -118,9 +118,7 @@ class = "nav-item active"
                     <div class="row mt-4">
 
                         @if(Auth::user())
-
-                        {!! Form::hidden('Name',Auth::user()->user_name,['class' => 'form-control']) !!}
-
+                        {!! Form::hidden('Email',Auth::user()->email,['class' => 'form-control']) !!}
                         @else
 
                         <div class="col-md-12 form-group {{ $errors->has('Name') ? 'has-error' : '' }}">
@@ -131,7 +129,13 @@ class = "nav-item active"
 
                         @if(Auth::user())
 
-                        {!! Form::hidden('Email',Auth::user()->email,['class' => 'form-control']) !!}
+                        {{-- {!! Form::label('Email',Auth::user()->email,['class' => 'form-control']) !!} testing --}}
+                        <div class="col-md-12 form-group {{ $errors->has('email') ? 'has-error' : '' }}">
+                            {{-- {!! Form::text('Subject',null,['class' => 'form-control']) !!}
+                            {!! Form::label('Subject',Lang::get('lang.email')) !!}<span class="text-red"> *</span> --}}
+                            {!! Form::label('email',Lang::get('lang.email')) !!}<span class="text-red"> *</span>
+                            {!! Form::text('Name',Auth::user()->user_name,['class' => 'form-control form-group']) !!}
+                        </div>
 
                         @else
                         <div class="col-md-12 form-group {{ $errors->has('Email') ? 'has-error' : '' }}">
@@ -153,23 +157,31 @@ class = "nav-item active"
                             {!! Form::text('Code',null,['class' => 'form-control', 'placeholder' => $phonecode, 'title' => Lang::get('lang.enter-country-phone-code')]) !!}
                         </div> -->
                         {!! Form::hidden('Code','62',['class' => 'form-control']) !!}
-                        <!-- <div class="col-md-5 form-group {{ $errors->has('mobile') ? 'has-error' : '' }}">
-                            {!! Form::label('mobile',Lang::get('lang.mobile_number')) !!}
-                             @if($email_mandatory->status == 0 || $email_mandatory->status == '0')
-                                    <span class="text-red"> *</span>
-                                    @endif
-                            {!! Form::text('mobile',null,['class' => 'form-control']) !!}
-                        </div> -->
-                        <div class="col-md-5 form-group {{ $errors->has('Phone') ? 'has-error' : '' }}">
-                            {!! Form::label('Phone',Lang::get('lang.phone')) !!}
+                        
+                        <div class="col-md-12 form-group {{ $errors->has('Phone') ? 'has-error' : '' }}">
+                            {!! Form::label('Phone',Lang::get('lang.phone')) !!} <span class="text-red"> *</span>
                             {!! Form::text('Phone',null,['class' => 'form-control']) !!}
                         </div>
+
                         @else
+
+                        <div class="col-md-12 form-group {{ $errors->has('Phone') ? 'has-error' : '' }}">
+                            {!! Form::label('Phone',Lang::get('lang.phone')) !!} <span class="text-red"> *</span>
+                            {!! Form::text('Phone',Auth::user()->phone_number,['class' => 'form-control']) !!}
+                        </div>
                             {!! Form::hidden('mobile',Auth::user()->mobile,['class' => 'form-control']) !!}
                             {!! Form::hidden('Code',Auth::user()->country_code,['class' => 'form-control']) !!}
-                            {!! Form::hidden('Phone',Auth::user()->phone_number,['class' => 'form-control']) !!}
+                            
 
                        @endif
+
+                        {{-- <div class="col-md-12 form-group {{ $errors->has('email') ? 'has-error' : '' }}">
+                            {!! Form::text('Subject',null,['class' => 'form-control']) !!}
+                            {!! Form::label('Subject',Lang::get('lang.email')) !!}<span class="text-red"> *</span>
+                            {!! Form::label('email',Lang::get('lang.email')) !!}<span class="text-red"> *</span>
+                            {!! Form::text('email_address',null,['class' => 'form-control form-group']) !!}
+                        </div> --}}
+
                         <div class="col-md-12 form-group {{ $errors->has('help_topic') ? 'has-error' : '' }}">
                             {!! Form::label('help_topic', Lang::get('lang.choose_a_help_topic')) !!}
                             {!! $errors->first('help_topic', '<spam class="help-block">:message</spam>') !!}
@@ -184,6 +196,7 @@ class = "nav-item active"
                                 @endforeach
                             </select>
                         </div>
+                        
                         <!-- priority -->
                          <?php
                          $Priority = App\Model\helpdesk\Settings\CommonSettings::select('status')->where('option_name','=', 'user_priority')->first();

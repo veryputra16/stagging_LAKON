@@ -308,7 +308,7 @@ if ($thread->title != "") {
                 <table class="table table-hover">
                     <div id="refresh3">
 
-                        @if($user->phone_number !=null)<tr><td><b>{!! Lang::get('lang.phone') !!}:</b></td>          <td>{{$user->phone_number}}</td></tr>@endif
+                        @if($user->phone_number !=null)<tr><td><b>{!! Lang::get('lang.phone') !!}:</b></td>          <td>{{$user->phone_number}}</td></tr>@endif {{-- Sample get notelp --}}
                         @if($user->mobile !=null)<tr><td><b>{!! Lang::get('lang.mobile') !!}:</b></td>          <td>{{$user->ext . $user->mobile}}</td></tr>@endif
                         <tr><td><b>{!! Lang::get('lang.source') !!}:</b></td>         <td>{{$ticket_source}}</td></tr>
                         <tr><td><b>{!! Lang::get('lang.help_topic') !!}:</b></td>     <?php $help_topic = App\Model\helpdesk\Manage\Help_topic::where('id', '=', $tickets->help_topic_id)->first(); ?><td title="{{$help_topic->topic}}">{{$help_topic->topic}}</td></tr>
@@ -365,6 +365,7 @@ if ($thread->title != "") {
                     </div>
 
                     <form id="form3">
+                    {{-- <form id="form3" action="{{ route('send.wa', ['id' => $user->id]) }}" method="POST"> --}}
                         
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -411,7 +412,8 @@ if ($thread->title != "") {
                                     <select class="form-control" style="width:55%" id="select" onchange="addCannedResponse()">
 
                                         <?php
-                                        $canneds = App\Model\helpdesk\Agent_panel\Canned::where('user_id', '=', Auth::user()->id)->get();
+                                        // $canneds = App\Model\helpdesk\Agent_panel\Canned::where('user_id', '=', Auth::user()->id)->get();
+                                        $canneds = App\Model\helpdesk\Agent_panel\Canned::all(); //agar mengabaikan kondisi join user_id
                                         ?>                                                  
                                         <option value="zzz">{!! Lang::get('lang.select_a_canned_response') !!}</option>
                                         @foreach($canneds as $canned)
@@ -430,6 +432,9 @@ if ($thread->title != "") {
                                         {!! Form::label('Reply Content', Lang::get('lang.reply_content').':') !!}<span class="text-red"> *</span>
                                     </div>
                                     <div class="col-md-10">
+                                        {{-- <div id="newtextarea">
+                                            <textarea style="width:98%;height:20%;" name="reply_content" class="form-control" id="reply_content"></textarea>
+                                        </div> --}}
                                         <div id="newtextarea">
                                             <textarea style="width:98%;height:20%;" name="reply_content" class="form-control" id="reply_content"></textarea>
                                         </div>

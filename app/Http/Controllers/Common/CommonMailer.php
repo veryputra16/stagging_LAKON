@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Common;
 
 use Exception;
 use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport;
+use Illuminate\Support\Facades\Mail;
+
 
 class CommonMailer
 {
@@ -18,7 +20,7 @@ class CommonMailer
             $transport->setPassword($config['password']);
 
             // Set the mailer
-            \Mail::setSymfonyTransport($transport);
+            Mail::setSymfonyTransport($transport);
 
             return true;
         } catch (Exception $e) {

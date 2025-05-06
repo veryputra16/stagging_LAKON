@@ -225,7 +225,7 @@ return [
     'diagnostics'                => 'Diagnostics',
     'from'                       => 'From',
     'to'                         => 'To',
-    'subject'                    => 'Subject',
+    'subject'                    => 'Judul',
     'message'                    => 'Message',
     'send'                       => 'Send',
     'choose_an_email'            => 'Choose an email',
@@ -254,7 +254,7 @@ return [
     'company'                      => 'Company',
     'company_settings'             => 'Company settings',
     'website'                      => 'Website',
-    'phone'                        => 'Phone',
+    'phone'                        => 'Nomer HP',
     'address'                      => 'Address',
     'landing'                      => 'Landing page',
     'offline'                      => 'Offline page',
@@ -665,7 +665,7 @@ return [
     'add_fields'                            => 'Add fields',
     'save_form'                             => 'Save form',
     'label'                                 => 'Label',
-    'name'                                  => 'Name',
+    'name'                                  => 'NamA',
     'type'                                  => 'Type',
     'values(selected_fields)'               => 'Values (Selected fields)',
     'required'                              => 'Required',
@@ -1051,7 +1051,7 @@ return [
       |  Ticket page
       |----------------------------------------------
      */
-    'subject'                                        => 'Subject',
+    'subject'                                        => 'Judul',
     'ticket_id'                                      => 'Ticket ID',
     'priority'                                       => 'Priority',
     'from'                                           => 'From',
@@ -1299,7 +1299,7 @@ return [
     'addarticle'                                      => 'Add article',
     'editarticle'                                     => 'Edit article',
     'allarticle'                                      => 'All articles',
-    'pages'                                           => 'Pages',
+    'pages'                                           => 'Informasi',
     'addpages'                                        => 'Add pages',
     'editpage'                                        => 'Edit page',
     'allpages'                                        => 'All pages',
@@ -1364,7 +1364,7 @@ return [
     'you_are_here'                                                                     => 'Anda disini',
     'have_a_ticket'                                                                    => 'Have a ticket',
     'check_ticket_status'                                                              => 'Submit',
-    'choose_a_help_topic'                                                              => 'Choose a help topic',
+    'choose_a_help_topic'                                                              => 'Kategori',
     'ticket_status'                                                                    => 'Ticket status',
     'post_comment'                                                                     => 'Post comment',
     'plugin'                                                                           => 'Plugin',
@@ -1660,4 +1660,7 @@ return [
     'category_list'                                => 'Category list',
     'check_ticket'                                 => 'Check ticket',
     'search_result'                                => 'Search Results',
+
+    //newly added
+    'email' => 'Email Address'
 ];

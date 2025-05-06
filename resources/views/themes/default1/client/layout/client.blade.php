@@ -153,7 +153,7 @@
                                 <li @yield('kb') class="nav-item dropdown">
                                     <a href="{!! url('knowledgebase') !!}" class="dropdown-toggle nav-link"  id="navbarDropdown" role="button" data-toggle=""
                                         aria-haspopup="true" aria-expanded="false">{!! Lang::get('lang.knowledge_base') !!}
-                                    </a>
+                                    </a> 
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                                         <li><a href="{{route('category-list')}}" class="dropdown-item">{!! Lang::get('lang.categories') !!}</a></li>
                                         <li><a href="{{route('article-list')}}" class="dropdown-item">{!! Lang::get('lang.articles') !!}</a></li>
