@@ -14,3 +14,4 @@ class Department extends BaseModel
         'auto_response_email', 'recipient', 'group_access', 'department_sign',
     ];
 }
+ 
