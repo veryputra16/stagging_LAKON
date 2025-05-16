@@ -12,6 +12,8 @@ namespace App\Http\Controllers\Admin\helpdesk;
  *
  * @author      Ladybird <info@ladybirdweb.com>
  */
+use App\Http\Controllers\Controller;
+
 class HomeController extends Controller
 {
     /**

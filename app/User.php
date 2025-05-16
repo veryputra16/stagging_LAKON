@@ -157,21 +157,21 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $html;
     }
 
-    // public function name()
-    // {
-    //     $first_name = $this->first_name;
-    //     $last_name = $this->last_name;
-    //     $name = $this->user_name;
-    //     if ($first_name !== '' && $first_name !== null) {
-    //         if ($last_name !== '' && $last_name !== null) {
-    //             $name = $first_name.' '.$last_name;
-    //         } else {
-    //             $name = $first_name;
-    //         }
-    //     }
+    public function name()
+    {
+        $first_name = $this->first_name;
+        $last_name = $this->last_name;
+        $name = $this->user_name;
+        if ($first_name !== '' && $first_name !== null) {
+            if ($last_name !== '' && $last_name !== null) {
+                $name = $first_name.' '.$last_name;
+            } else {
+                $name = $first_name;
+            }
+        }
 
-    //     return $name;
-    // }
+        return $name;
+    }
 
     public function getNameAttribute()
 {

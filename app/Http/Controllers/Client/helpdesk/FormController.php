@@ -40,6 +40,13 @@ use auth;
  */
 class FormController extends Controller
 {
+
+    /**
+     * @OA\Info(
+     *     title="Helpdesk API",
+     *     version="1.0.0"
+     * )
+     */
     /**
      * @var FileuploadController
      */
@@ -155,6 +162,7 @@ class FormController extends Controller
      * @param type Request $request
      * @param type User    $user
      */
+
     
 
         public function postedForm(User $user, ClientRequest $request, Ticket $ticket_settings, Ticket_source $ticket_source, Ticket_attachments $ta, CountryCode $code)
@@ -249,7 +257,7 @@ class FormController extends Controller
                                     . "Pemohon   : {$name}\n"
                                     . "Kategori  : {$helptopic_name}\n"
                                     . "Subject   : {$subject}\n"
-                                    . "Priority  : {$ticket_priority}\n"
+                                    . "Priority  : {$ticket_priority}\n\n"
                                     . "Permohonan :\n" . strip_tags($details);
                     
                         $response = Http::withBasicAuth(env('WA_API_AUTH_USER'), env('WA_API_AUTH_PASS'))

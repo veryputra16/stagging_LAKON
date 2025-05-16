@@ -63,6 +63,13 @@ use Yajra\DataTables\Facades\DataTables;
  */
 class TicketController extends Controller
 {
+
+    /**
+     * @OA\Info(
+     *     title="Helpdesk API",
+     *     version="1.0.0"
+     * )
+     */
     /**
      * Create a new controller instance.
      *
